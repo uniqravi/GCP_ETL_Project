@@ -1,0 +1,10 @@
+steps:
+  name: gcr.io/cloud-builders/git
+  args: ['clone', 'https://github.com/uniqravi/GCP_ETL_Project']
+  id: 'check-out-source-code'
+  name: gcr.io/cloud-builders/gsutil
+  args: ['cp', '-r', 'gs://gcp_etl_project/code']
+  dir: 'GCP_ETL_Project/source-code/data-processing-code'
+  id: 'copy-python'
+
+
