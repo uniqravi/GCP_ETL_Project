@@ -7,3 +7,6 @@ steps:
   dir: 'GCP_ETL_Project/source-code/data-processing-code'
   id: 'copy-python'
 
+  options:
+    logging: CLOUD_LOGGING_ONLY
+
