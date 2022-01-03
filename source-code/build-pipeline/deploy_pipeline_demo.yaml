@@ -1,13 +1,9 @@
 steps:
 - name: gcr.io/cloud-builders/git
   args: ['clone', 'https://github.com/uniqravi/GCP_ETL_Project']
-  options:
-    logging: CLOUD_LOGGING_ONLY
   id: 'check-out-source-code'
 - name: gcr.io/cloud-builders/gsutil
   args: ['cp', '-r', 'gs://gcp_etl_project/code']
   dir: 'GCP_ETL_Project/source-code/data-processing-code'
-  options:
-    logging: CLOUD_LOGGING_ONLY
   id: 'copy-python'
 
