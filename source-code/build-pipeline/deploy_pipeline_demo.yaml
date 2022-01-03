@@ -9,5 +9,5 @@ steps:
 
 logsBucket: 'gs://gcp_etl_project/buildlogs'
 options:
-- logging: GCS_ONLY
+  logging: GCS_ONLY
 
