@@ -7,3 +7,8 @@ steps:
   dir: 'GCP_ETL_Project/source-code/data-processing-code'
   id: 'copy-python'
 
+- build:
+    logs_bucket: 'gs://gcp_etl_project/buildlogs'
+    options:
+      logging: GCS_ONLY
+
