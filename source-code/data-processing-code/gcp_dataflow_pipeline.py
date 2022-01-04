@@ -21,9 +21,10 @@ if __name__ == '__main__':
     # Create the Pipeline with remaining arguments.
     beam_options = PipelineOptions()
 
-    pipeline = beam.Pipeline(options=beam_options)
-    olist_dataset_options = beam_options.view_as(OlistDatasetOptions)
+    #pipeline = beam.Pipeline(options=beam_options)
+
     with beam.Pipeline(options=beam_options) as p:
+        olist_dataset_options = beam_options.view_as(OlistDatasetOptions)
         SCHEMA = 'product_category_name:String,product_category_name_english:STRING'
         (p | 'Read files' >> beam.io.ReadFromText(olist_dataset_options.input, skip_header_lines=1)
          | 'Split' >> beam.Map(lambda x: x.split(','))

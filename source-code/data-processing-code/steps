@@ -1,0 +1,15 @@
+--follow link
+
+--create python pipline file with valueprovide , not add argument
+
+--run below command to create temlapte at gcp
+
+python3 -m gcp_dataflow_pipeline --runner DataflowRunner --project gcp-learning-333002 --staging_location gs://gcp_etl_project/dataflow_templates/product_category/staging
+--temp_location gs://gcp_etl_project/dataflow_templates/product_category/temp
+--template_location gs://gcp_etl_project/dataflow_templates/product_category/template/GCP_Product_Category_ETL --region us-west1
+
+---creat3e metadata file to store as template name
+   GCP_Product_Category_ETL_metadata
+
+----copy to the same localtion
+
