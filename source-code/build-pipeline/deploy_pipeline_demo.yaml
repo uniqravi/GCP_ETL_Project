@@ -12,6 +12,11 @@ steps:
   #id: 'copy-pipeline-code'
 - name: python
   entrypoint: pip
+  args: ["install", "--upgrade", "pip"]
+  #dir: 'GCP_ETL_Project/source-code/data-processing-code/'
+  id: 'upgrade pip'
+- name: python
+  entrypoint: pip
   args: ["install", "-r", "requirements.txt"]
   dir: 'GCP_ETL_Project/source-code/data-processing-code/'
   id: 'install dependencies'
