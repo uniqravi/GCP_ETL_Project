@@ -30,7 +30,7 @@ if __name__ == '__main__':
          | 'Filter Blank Row' >> beam.Filter(lambda x: x[0] != '' & x[1] != '')
          | 'Making product Dict Map' >> beam.Map(
                     lambda x: {'product_category_name': x[0], 'product_category_name_english': x[1]})
-         | 'Write ProductCat BigQuery' >> beam.io.WriteToBigQuery(table='gcp-learning-333002.olist.product_category',
+         | 'Write ProductCat BigQuery' >> beam.io.WriteToBigQuery(table='gcp-learning-333002:olist.product_category',
                                                                   schema=SCHEMA,
                                                                   write_disposition=beam.io.BigQueryDisposition.WRITE_APPEND)
          )
