@@ -11,6 +11,11 @@ steps:
   #dir: 'GCP_ETL_Project/source-code/data-processing-code'
   #id: 'copy-pipeline-code'
 - name: python
+  entrypoint: pip
+  args: ["install", "-r", "requirements.txt"]
+  dir: 'GCP_ETL_Project/source-code/data-processing-code/'
+  id: 'install dependencies'
+- name: python
   entrypoint: python
   args: ['-m','gcp_dataflow_pipeline','--runner','DataflowRunner','--project','gcp-learning-333002','--staging_location',
          'gs://gcp_etl_project/dataflow_templates/product_category/staging','--temp_location','gs://gcp_etl_project/dataflow_templates/product_category/temp',
