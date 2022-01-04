@@ -6,10 +6,10 @@ steps:
   args: ['cp', '-r','GCP_ETL_Project/source-code/data-processing-code','gs://gcp_etl_project/code']
   #dir: 'GCP_ETL_Project/source-code/data-processing-code'
   id: 'copy-pipeline-code'
-- name: gcr.io/cloud-builders/gsutil
-  args: ['cp', '-r','GCP_ETL_Project/source-code/data-processing-code/','gs://gcp_etl_project/code']
+- #name: gcr.io/cloud-builders/gsutil
+  #args: ['cp', '-r','GCP_ETL_Project/source-code/data-processing-code/','gs://gcp_etl_project/code']
   #dir: 'GCP_ETL_Project/source-code/data-processing-code'
-  id: 'copy-pipeline-code'
+  #id: 'copy-pipeline-code'
 - name: python
   entrypoint: python
   args: ['-m','gcp_dataflow_pipeline','--runner','DataflowRunner','--project','gcp-learning-333002','--staging_location',
