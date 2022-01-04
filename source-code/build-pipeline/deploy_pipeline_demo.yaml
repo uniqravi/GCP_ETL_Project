@@ -6,7 +6,7 @@ steps:
   args: ['cp', '-r','GCP_ETL_Project/source-code/data-processing-code','gs://gcp_etl_project/code']
   #dir: 'GCP_ETL_Project/source-code/data-processing-code'
   id: 'copy-pipeline-code'
-- #name: gcr.io/cloud-builders/gsutil
+  #name: gcr.io/cloud-builders/gsutil
   #args: ['cp', '-r','GCP_ETL_Project/source-code/data-processing-code/','gs://gcp_etl_project/code']
   #dir: 'GCP_ETL_Project/source-code/data-processing-code'
   #id: 'copy-pipeline-code'
