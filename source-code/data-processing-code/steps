@@ -67,4 +67,8 @@ def dataflow_exec(file,context) :
 	requirement.txt
 
 	google-api-python-client
+	setuptools
+toml
+pyproject.toml
+wheel
 

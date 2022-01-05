@@ -1,5 +1,1 @@
-setuptools
-toml
-pyproject.toml
-wheel
 apache-beam[gcp]
