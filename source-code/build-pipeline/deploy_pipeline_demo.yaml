@@ -2,17 +2,18 @@ steps:
 - name: gcr.io/cloud-builders/git
   args: ['clone', 'https://github.com/uniqravi/GCP_ETL_Project']
   id: 'check-out-source-code'
-- name: gcr.io/cloud-builders/gsutil
-  args: ['cp', '-r','GCP_ETL_Project/source-code/data-processing-code','gs://gcp_etl_project/code']
+
+  #name: gcr.io/cloud-builders/gsutil
+  #args: ['cp', '-r','GCP_ETL_Project/source-code/data-processing-code','gs://gcp_etl_project/code']
   #dir: 'GCP_ETL_Project/source-code/data-processing-code'
-  id: 'copy-pipeline-code'
+  #id: 'copy-pipeline-code'
   #name: gcr.io/cloud-builders/gsutil
   #args: ['cp', '-r','GCP_ETL_Project/source-code/data-processing-code/','gs://gcp_etl_project/code']
   #dir: 'GCP_ETL_Project/source-code/data-processing-code'
   #id: 'copy-pipeline-code'
 - name: python
   entrypoint: pip
-  args: ["install", "--upgrade", "pip"]
+  args: ["install", "--upgrade", "pip",'--user']
   #dir: 'GCP_ETL_Project/source-code/data-processing-code/'
   id: 'upgrade pip'
 - name: python
