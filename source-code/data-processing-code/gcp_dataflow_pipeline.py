@@ -19,7 +19,6 @@ if __name__ == '__main__':
     logging.getLogger().setLevel(logging.INFO)
     # Create the Pipeline with remaining arguments.
     beam_options = PipelineOptions()
-    gcp - learning - 333002: olist.product_category
     #pipeline = beam.Pipeline(options=beam_options)
 
     with beam.Pipeline(options=beam_options) as p:
