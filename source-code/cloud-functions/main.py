@@ -5,7 +5,7 @@ def temp_trigger_etl_flow(event, context):
          context (google.cloud.functions.Context): Metadata for the event.
     """
     dataflow_exec(event, context)
-    print(f"Processing file: {file['name']}.")
+    print(f"Processing file: {event['name']}.")
 
 
 def dataflow_exec(file, context):
