@@ -27,9 +27,10 @@ steps:
   args: ['cp','GCP_Product_Category_ETL_metadata','gs://gcp_etl_project/dataflow_templates/product_category/template/']
   dir: 'GCP_ETL_Project/source-code/data-processing-code/'
 - name: gcr.io/cloud-builders/gcloud
-  args: ['functions','deploy','temp_product_category_etl','--region','us-west1','--runtime=python37','--entry-point',
-         'temp_trigger_etl_flow','--trigger-resource','temp_olist_product_category','--trigger-event','google.storage.object.finalize']
+  args: ['functions','deploy','temp_trigger_etl_flow','--project','gcp-learning-333002','--region','us-west1','--runtime=python37','--entry-point',
+         'temp_trigger_etl_flow','--trigger-resource','gs://temp_olist_product_category','--trigger-event','google.storage.object.finalize']
   dir: 'GCP_ETL_Project/source-code/cloud-functions/'
+  id: 'deploy cloud function'
 logsBucket: 'gs://gcp_etl_project/buildlogs'
 options:
   logging: GCS_ONLY
