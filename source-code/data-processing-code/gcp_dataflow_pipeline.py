@@ -27,7 +27,7 @@ if __name__ == '__main__':
         SCHEMA = 'product_category_name:String,product_category_name_english:STRING'
         (p | 'Read files' >> beam.io.ReadFromText(olist_dataset_options.input, skip_header_lines=1)
          | 'Split' >> beam.Map(lambda x: x.split(','))
-         | 'Filter Blank Row' >> beam.Filter(lambda x: x[0] != '' and x[1] != '')
+         | 'Filter Blank Row' >> beam.Filter(lambda x: x[0] != '' and x[2] != '')
          | 'Making product Dict Map' >> beam.Map(
                     lambda x: {'product_category_name': x[0], 'product_category_name_english': x[1]})
          | 'Write ProductCat BigQuery' >> beam.io.WriteToBigQuery(table='gcp-learning-333002:olist.product_category',
