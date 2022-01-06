@@ -23,7 +23,13 @@ steps:
            '--template_location','gs://gcp_etl_project/dataflow_templates/product_category/template/GCP_Product_Category_ETL','--region','us-west1']
   dir: 'GCP_ETL_Project/source-code/data-processing-code/'
   id: 'create GCP_Product_Category_ETL template'
-
+- name: gcr.io/cloud-builders/gsutil
+  args: ['cp','GCP_Product_Category_ETL_metadata','gs://gcp_etl_project/dataflow_templates/product_category/template/']
+  dir: 'GCP_ETL_Project/source-code/data-processing-code/'
+- name: gcr.io/cloud-builders/gcloud
+  args: ['functions','deploy','temp_product_category_etl','--region','us-west1','--runtime=python37','--entry-point',
+         'temp_trigger_etl_flow','--trigger-resource','temp_olist_product_category','--trigger-event','google.storage.object.finalize']
+  dir: 'GCP_ETL_Project/source-code/cloud-functions/'
 logsBucket: 'gs://gcp_etl_project/buildlogs'
 options:
   logging: GCS_ONLY
